@@ -1,0 +1,447 @@
+ 
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+} 
+ 
+body { 
+    width: 100%; 
+    min-height: 100vh; 
+    overflow: hidden; 
+ 
+    font-family: Arial, sans-serif; 
+} 
+ 
+ 
+/* ========================= 
+   MENU UTAMA 
+========================= */ 
+ 
+.menu { 
+    min-height: 100vh; 
+ 
+    display: flex; 
+    flex-direction: column; 
+ 
+    justify-content: center; 
+    align-items: center; 
+ 
+    gap: 35px; 
+ 
+    background-image: 
+        linear-gradient( 
+            rgba(0, 0, 0, 0.2), 
+            rgba(0, 0, 0, 0.2) 
+        ), 
+        url("assets/background.png"); 
+ 
+    background-size: cover; 
+    background-position: center; 
+} 
+ 
+ 
+/* ========================= 
+   LOGO 
+========================= */ 
+ 
+.logo { 
+    width: 400px; 
+    max-width: 70%; 
+ 
+    object-fit: contain; 
+ 
+    animation: logoAppear 1s ease; 
+} 
+ 
+ 
+/* ========================= 
+   TOMBOL MAIN 
+========================= */ 
+ 
+#mainBtn { 
+    width: 220px; 
+    height: 45px; 
+ 
+    border: none; 
+    border-radius: 25px; 
+ 
+    background: rgba(255, 255, 255, 0.85); 
+ 
+    color: #30AFFF; 
+ 
+    font-size: 16px; 
+    font-weight: bold; 
+ 
+    cursor: pointer; 
+ 
+    transition: 0.2s ease; 
+} 
+ 
+#mainBtn:hover { 
+    transform: scale(1.05); 
+ 
+    background: #92EEFF; 
+    color: white; 
+} 
+ 
+#mainBtn:active { 
+    transform: scale(0.97); 
+} 
+ 
+ 
+/* ========================= 
+   ANIMASI LOGO 
+========================= */ 
+ 
+@keyframes logoAppear { 
+ 
+    from { 
+        opacity: 0; 
+        transform: translateY(-20px) scale(0.9); 
+    } 
+ 
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    } 
+ 
+} 
+ 
+ 
+/* ========================= 
+   SCENE DIALOG 
+========================= */ 
+ 
+.dialog { 
+    display: none; 
+ 
+    position: fixed; 
+    inset: 0; 
+ 
+    width: 100%; 
+    height: 100vh; 
+ 
+    overflow: hidden; 
+ 
+    cursor: pointer; 
+} 
+ 
+ 
+/* ========================= 
+   BACKGROUND 
+========================= */ 
+ 
+.dialog-background { 
+    position: absolute; 
+    inset: 0; 
+ 
+    width: 100%; 
+    height: 100%; 
+ 
+    object-fit: cover; 
+ 
+    z-index: 0; 
+} 
+ 
+.background-special { 
+    position: absolute; 
+    inset: 0; 
+ 
+    width: 100%; 
+    height: 100%; 
+ 
+    object-fit: cover; 
+ 
+    z-index: 0; 
+} 
+ 
+ 
+ 
+/* ========================= 
+   GAMBAR KARAKTER 
+========================= */ 
+ 
+.dialog-character { 
+    position: absolute; 
+ 
+    bottom: -20%; 
+    left: 50%; 
+ 
+    transform: translateX(-50%); 
+ 
+    max-height: 90%; 
+    max-width: 50%; 
+ 
+    object-fit: contain; 
+ 
+    z-index: 1; 
+ 
+    pointer-events: none; 
+} 
+ 
+ 
+/* ========================= 
+   KOTAK DIALOG 
+========================= */ 
+ 
+.dialog-box { 
+    position: absolute; 
+ 
+    left: 10%; 
+    right: 10%; 
+    bottom: 5%; 
+ 
+    min-height: 125px; 
+ 
+    padding: 30px 25px 25px; 
+ 
+    background: rgba(120, 120, 120, 0.45); 
+ 
+    border-radius: 20px; 
+ 
+    z-index: 2; 
+ 
+    color: white; 
+} 
+ 
+ 
+/* ========================= 
+   NAMA KARAKTER 
+========================= */ 
+ 
+.character-name { 
+    position: absolute; 
+ 
+    left: 20px; 
+    top: -25px; 
+ 
+    min-width: 100px; 
+ 
+    padding: 8px 25px; 
+ 
+    background: #92EEFF; 
+ 
+    color: white; 
+ 
+    font-size: 18px; 
+    font-weight: bold; 
+ 
+    text-align: center; 
+ 
+    border-radius: 20px; 
+ 
+    white-space: nowrap; 
+} 
+ 
+ 
+/* ========================= 
+   TEKS DIALOG 
+========================= */ 
+ 
+.dialog-text { 
+    font-size: 20px; 
+ 
+    line-height: 1.5; 
+ 
+    font-weight: 500; 
+ 
+    color: white; 
+ 
+    word-wrap: break-word; 
+} 
+ 
+ 
+/* ========================= 
+   TABLET 
+========================= */ 
+ 
+@media (max-width: 900px) { 
+ 
+    .dialog-box { 
+        left: 7%; 
+        right: 7%; 
+        bottom: 5%; 
+ 
+        min-height: 120px; 
+ 
+        padding: 28px 22px 22px; 
+    } 
+ 
+    .character-name { 
+        left: 18px; 
+        top: -23px; 
+ 
+        padding: 7px 22px; 
+ 
+        font-size: 17px; 
+    } 
+ 
+    .dialog-text { 
+        font-size: 19px; 
+    } 
+ 
+    .dialog-character { 
+        max-width: 60%; 
+        max-height: 85%; 
+    } 
+ 
+} 
+ 
+ 
+/* ========================= 
+   MOBILE 
+========================= */ 
+ 
+@media (max-width: 600px) { 
+ 
+    .logo { 
+        width: 200px; 
+        max-width: 80%; 
+    } 
+ 
+ 
+    #mainBtn { 
+        width: 190px; 
+        height: 42px;
+ 
+        font-size: 15px; 
+    } 
+ 
+ 
+    .dialog-box { 
+        left: 5%; 
+        right: 5%; 
+        bottom: 4%; 
+ 
+        min-height: 110px; 
+ 
+        padding: 25px 18px 18px; 
+ 
+        border-radius: 16px; 
+    } 
+ 
+ 
+    .character-name { 
+        left: 15px; 
+        top: -21px; 
+ 
+        min-width: 85px; 
+ 
+        padding: 6px 18px; 
+ 
+        font-size: 16px; 
+ 
+        border-radius: 18px; 
+    } 
+ 
+ 
+    .dialog-text { 
+        font-size: 17px; 
+ 
+        line-height: 1.45; 
+    } 
+ 
+ 
+    .dialog-character { 
+        max-width: 700%; 
+        max-height: 90%; 
+    } 
+ 
+} 
+ 
+ 
+/* ========================= 
+   HP SANGAT KECIL 
+========================= */ 
+ 
+@media (max-width: 400px) { 
+ 
+    .dialog-background { 
+    position: absolute; 
+    inset: 0; 
+ 
+    width: 100%; 
+    height: 100%; 
+ 
+    object-fit: cover; 
+ 
+    z-index: 0; 
+    } 
+ 
+} 
+ 
+    .dialog-box { 
+        left: 4%; 
+        right: 4%; 
+        bottom: 3%; 
+ 
+        padding: 23px 15px 15px; 
+ 
+        min-height: 100px; 
+    } 
+ 
+ 
+    .character-name { 
+        left: 12px; 
+        top: -19px; 
+ 
+        padding: 5px 15px; 
+ 
+        font-size: 14px; 
+    } 
+ 
+ 
+    .dialog-text { 
+        font-size: 15px; 
+ 
+        line-height: 1.4; 
+    } 
+ 
+ 
+    .dialog-character { 
+    
+        max-width: 200%; 
+        max-height: 100%;
+    } 
+
+   /*TOMBOL MAIN LAGI*/
+#reloadBtn {
+    display: none;
+
+    width: 220px;
+    height: 45px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    color: #30AFFF;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+    position: fixed;
+    left: 50%;
+    bottom: 10%;
+
+    transform: translateX(-50%);
+
+    z-index: 10;
+}
+
+#reloadBtn:hover {
+    transform: translateX(-50%) scale(1.05);
+
+    background: #92EEFF;
+    color: white;
+}
+
+#reloadBtn:active {
+    transform: translateX(-50%) scale(0.97);
+}
