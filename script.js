@@ -1,6 +1,6 @@
 
 const $ = id => document.getElementById(id);
-
+//NAMA NAMA VARIABEL
 const mainBtn = $("mainBtn");
 const menu = $("menu");
 const dialog = $("dialog");
@@ -11,15 +11,18 @@ const dialogCharacter = $("dialogCharacter");
 const dialogBox = document.querySelector(".dialog-box");
 const reloadBtn = $("reloadBtn");
 
-
+//LAGU LATAR BELAKANG
 const backgroundMusic = new Audio("assets/backsound.mp3");
 backgroundMusic.loop = true;
 backgroundMusic.volume = 0.2;
 
+//SUARA KETIK
 const dialogSound = new Audio("assets/dialog.mp3");
 dialogSound.loop = true;
 
+//SCENE DIALOG YG AKAN DI TAMPILKAN
 const scenes = [
+    //scene1
     {
         background: "assets/background-sekolah.png",
         dialogs: [
@@ -29,6 +32,7 @@ const scenes = [
             ["Aku", "Ah, sudahlah. Aku harus segera masuk ke kelas"]
         ]
     },
+    //scene2
     {
         background: "assets/background-kelas.png",
         dialogs: [
@@ -220,16 +224,16 @@ const scenes = [
     }
 ];
 
-let scene = 0;
-let line = 0;
-let typing = false;
+let scene = 0;//adegan yang di mainkan
+let line = 0; //bnyk dialog
+let typing = false; //ngecek teks nya di sedang ngetik atau gk
 let timer;
 let text = "";
 
 const typingSpeed = 40;
 
 function typeText(value) {
-    clearInterval(timer);
+    clearInterval(timer);//buat text muncul 1 per 1
     dialogSound.pause();
     dialogSound.currentTime = 0;
 
@@ -252,6 +256,7 @@ function typeText(value) {
     }, typingSpeed);
 }
 
+//utk meload gambar karakter,background dan dialog sesuai dengan scene
 function startScene(index) {
     scene = index;
     line = 0;
@@ -275,13 +280,13 @@ function startScene(index) {
         reloadBtn.style.display = "block";
     }
 }
-
+//mengambil nama 
 function showDialog() {
     const [name, text] = scenes[scene].dialogs[line];
     dialogName.textContent = name;
     typeText(text);
 }
-
+//utk skip animasi ngetik
 function finishText() {
     clearInterval(timer);
     dialogText.textContent = text;
@@ -289,7 +294,7 @@ function finishText() {
     dialogSound.pause();
     dialogSound.currentTime = 0;
 }
-
+//utk menyembunyikan menu utama saat dimainkan
 mainBtn.onclick = () => {
     menu.style.display = "none";
     dialog.style.display = "block";
@@ -297,6 +302,7 @@ mainBtn.onclick = () => {
     startScene(0);
 };
 
+//utk ngatur alur game
 dialog.onclick = () => {
     if (typing) {
         finishText();
@@ -316,7 +322,7 @@ dialog.onclick = () => {
     }
 };
 
-
+//refresh halaman
 reloadBtn.onclick = () => {
     location.reload();
 };
